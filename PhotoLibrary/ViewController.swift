@@ -20,6 +20,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func onWatchButton(_ sender: Any) {
+//        print(imageArray)
+//        print(imageUrlArray)
+        openPhotoCollection()
+
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         let imageURL = info[.referenceURL] as! URL
@@ -28,7 +36,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imageArray.append(image)
         imageUrlArray.append(info[.referenceURL] as! URL)
         picker.dismiss(animated: true, completion: nil)
-        print(imageArray)
+//        print(imageArray)
+    }
+    
+
+    private func openPhotoCollection() {
+        let storyboard = UIStoryboard(name: "PhotoCollection", bundle: .main)
+        let vc = storyboard.instantiateInitialViewController() as! PhotoCollection
+//        navigationController?.pushViewController(vc, animated: true)
+        vc.imageArrayPC = imageArray
+        vc.imageURLArrayPC = imageUrlArray
+        present(vc, animated: true)
     }
 }
 

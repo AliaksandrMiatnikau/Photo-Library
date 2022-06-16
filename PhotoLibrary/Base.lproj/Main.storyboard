@@ -44,6 +44,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Watch photo"/>
+                                <connections>
+                                    <action selector="onWatchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3PT-Gt-Xgh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
